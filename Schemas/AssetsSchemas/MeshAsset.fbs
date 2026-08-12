@@ -1,0 +1,25 @@
+include "AssetHeader.fbs";
+
+namespace PGPEngine.Asset;
+
+table Mesh{
+	lod: ubyte;
+	material_hash: PGPEngine.Shared.GUID;
+	indices: [int];
+	vertices: [float];
+	normals: [float];
+	tangents: [float];
+	bitangents: [float];
+	uvs0: [float];
+	uvs1: [float];
+	uvs0_component_count: ubyte;
+	uvs1_component_count: ubyte;
+}
+
+table MeshAsset {
+	header: PGPEngine.Asset.Header;
+	meshes: [Mesh];
+}
+
+
+root_type MeshAsset;

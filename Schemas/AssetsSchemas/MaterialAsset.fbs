@@ -1,0 +1,29 @@
+include "AssetHeader.fbs";
+
+namespace PGPEngine.Asset;
+
+enum AlphaMode: ubyte { 
+	Opaque = 0, Mask = 1, Blend = 2
+}
+
+table MaterialAsset {
+	header: PGPEngine.Asset.Header;
+	base_color_texture_hash: PGPEngine.Shared.GUID;
+	normal_texture_hash: PGPEngine.Shared.GUID;
+	orm_texture_hash: PGPEngine.Shared.GUID;
+	emissive_texture_hash: PGPEngine.Shared.GUID; 
+	
+	base_color: PGPEngine.Shared.Vec4;
+	normal_threshold: float;
+	metallic_threshold: float;
+	roughness_threshold: float;
+	ambient_occlusion_threshold: float;
+	emissive_color: PGPEngine.Shared.Vec3;
+	emissive_threshold: float;
+	alpha_mode: AlphaMode;
+	alpha_cutoff: float;
+	backface_culling: bool;
+}
+
+
+root_type MaterialAsset;

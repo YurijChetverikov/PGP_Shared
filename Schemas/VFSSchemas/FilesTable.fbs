@@ -1,0 +1,35 @@
+include "../Shared.fbs";
+
+namespace PGPEngine.VFS;
+
+struct Metadata {
+	created_ts_utc: long;
+	updated_ts_utc: long;
+	compressed_size: long;
+	uncompressed_size: long;
+}
+
+struct Chunk {
+	pack_index: ubyte;
+	index: uint;
+	offset: uint;
+	size: uint;
+}
+
+table File{
+	id: PGPEngine.Shared.GUID;
+	source_relative_path: string;
+	pack_index: ubyte;
+	chunk_index: ushort;
+	chunk_offset: uint;
+	meta: Metadata;
+}
+
+table FilesTable {
+	files: [File];
+	chunks: [Chunk];
+	meta: Metadata;
+}
+
+
+root_type FilesTable;

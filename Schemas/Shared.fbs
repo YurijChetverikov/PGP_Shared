@@ -1,0 +1,43 @@
+namespace PGPEngine.Shared;
+
+struct GUID {
+  a: long;
+  b: long;
+}
+
+struct Vec4 {
+  x: float;
+  y: float;
+  z: float;
+  w: float;
+}
+
+struct Vec3 {
+  x: float;
+  y: float;
+  z: float;
+}
+
+struct Vec2 {
+  x: float;
+  y: float;
+}
+
+struct Matrix4x4 {
+  m11: float;
+  m12: float;
+  m13: float;
+  m14: float;
+  m21: float;
+  m22: float;
+  m23: float;
+  m24: float;
+  m31: float;
+  m32: float;
+  m33: float;
+  m34: float;
+  m41: float;
+  m42: float;
+  m43: float;
+  m44: float;
+}

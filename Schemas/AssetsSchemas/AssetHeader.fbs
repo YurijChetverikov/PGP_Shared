@@ -1,0 +1,20 @@
+include "../Shared.fbs";
+
+namespace PGPEngine.Asset;
+
+enum AssetType: ubyte { 
+	Mesh = 0, 
+	CollisionMesh = 1, 
+	AnimationClip = 2, 
+	Texture = 3, 
+	Material = 4
+}
+
+table Header{
+	type: AssetType;
+	id: PGPEngine.Shared.GUID;
+	display_name: string;
+	original_asset_path: string;
+}
+
+root_type Header;

@@ -1,0 +1,26 @@
+include "AssetHeader.fbs";
+include "MeshAsset.fbs";
+
+namespace PGPEngine.Asset;
+
+struct VertexWeigth {
+	vertex_index: int;
+	weight: float;
+}
+
+table Bone {
+	lod: ubyte;
+	name: string;
+	offset_matrix: PGPEngine.Shared.Matrix4x4;
+	weights: [VertexWeigth];
+}
+
+table ModelAsset {
+	header: PGPEngine.Asset.Header;
+	lods_available: [ubyte];
+	meshes: [PGPEngine.Asset.ModelAsset];
+	skeleton: [Bone];
+}
+
+
+root_type ModelAsset;
